@@ -1,6 +1,7 @@
 import React from "react";
 import Firestore from "../hooks/useFirestore";
 import '../App.css';
+import {motion} from 'framer-motion';
 
 const Grid = () =>{
 
@@ -9,10 +10,11 @@ const Grid = () =>{
     return(
         <div className="img-grid">
 {docs && docs.map(doc =>(
-    <div className="img-wrap" key={doc.id} 
+    <motion.div className="img-wrap" key={doc.id} 
+    whileHover={{opacity:1}}
     >
 <img src={doc.url} alt="uploaded pic" />
-    </div>
+    </motion.div>
 ))}
         </div>
     );
